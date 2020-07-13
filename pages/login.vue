@@ -3,7 +3,7 @@
     <div
       class="flex items-center flex-col h-48 mt-20 w-4/5 p-4 bg-white shadow rounded"
     >
-      <div class="w-full border-b pb-2 mb-10">
+      <div class="w-full border-b pb-2 mb-10" @submit.prevent="onSubmit">
         <p class="text-center">ログイン</p>
       </div>
       <form class="w-full">
@@ -17,3 +17,15 @@
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  methods: {
+    onSubmit() {
+      const provider = new this.$firebase.auth.GoogleAuthProvider()
+      this.$fireAuth.signInWithRedirect(provider)
+    }
+  }
+}
+</script>
