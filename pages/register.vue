@@ -62,6 +62,8 @@
 
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   data() {
     return {
@@ -88,6 +90,7 @@ export default {
 
 
   methods: {
+    ...mapMutations('alert', ['setMessage']),
     selectImage() {
       this.$refs.image.click()
     },
