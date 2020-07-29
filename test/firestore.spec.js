@@ -178,22 +178,22 @@ describe(testName, () => {
     })
     
     describe('create', () => {
-      // test('chatのデータを作成できるかどうか', async () => {
-      //   const db = authDB({ uid: 'tech-user' })
-      //   await firebase.assertSucceeds(
-      //     db
-      //       .collection('rooms')
-      //       .doc('tech-room')
-      //       .collection('chats')
-      //       .add({
-      //         userId: 'tech-user',
-      //         name: 'testUser',
-      //         iconImageUrl: 'https://exampla.com',
-      //         body: 'こんにちわ',
-      //         createdAt: new Date()
-      //       })
-      //   )
-      // })
+      test('chatのデータを作成できるかどうか', async () => {
+        const db = authDB({ uid: 'tech-user' })
+        await firebase.assertSucceeds(
+          db
+            .collection('rooms')
+            .doc('tech-room')
+            .collection('chats')
+            .add({
+              userId: 'tech-user',
+              name: 'testUser',
+              iconImageUrl: 'https://exampla.com',
+              body: 'こんにちわ',
+              createdAt: new Date()
+            })
+        )
+      })
   
       test('userIdが自分以外の場合、作成に失敗するかどうか', async () => {
         const db = authDB({ uid: 'tech-user' })
